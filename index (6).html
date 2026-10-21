@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f6b3f">
+<title>Adopsi Orangutan 🦧 Sekolah Hutan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g1:#1f4d2c;--g2:#2f6b3f;--g3:#58a05a;--g4:#bfe3a8;--cream:#fff8e7;--or:#f08a24;--or2:#d96b0b;--bark:#6b4423;--ink:#2b3a2b}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);max-width:430px;margin:0 auto;min-height:100vh;overflow-x:hidden;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));position:relative;box-shadow:0 0 40px rgba(0,0,0,.12)}
+h1,h2,h3,.btn,.tag{font-family:'Fredoka',system-ui,sans-serif}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(31,77,44,.96);backdrop-filter:blur(8px);color:#fff;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;display:flex;align-items:center;gap:8px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px}
+.top small{margin-left:auto;font-weight:400;font-size:12px;background:var(--or);padding:3px 10px;border-radius:99px}
+/* hero */
+.hero{position:relative;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%);color:#fff;text-align:center;padding:34px 22px 80px;overflow:hidden}
+.vine{position:absolute;top:-6px;font-size:44px;transform-origin:top center;animation:sway 4s ease-in-out infinite}
+.v1{left:4%}.v2{left:24%;animation-delay:-1.2s;font-size:36px}.v3{right:22%;animation-delay:-2.2s;font-size:38px}.v4{right:3%;animation-delay:-.6s}
+@keyframes sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.leaf{position:absolute;font-size:20px;opacity:.7;animation:fall 9s linear infinite}
+.l1{left:12%;animation-delay:0s}.l2{left:45%;animation-delay:-3s}.l3{left:78%;animation-delay:-6s}.l4{left:30%;animation-delay:-4.5s;font-size:16px}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(420px) rotate(360deg)}}
+.mascot{font-size:92px;display:inline-block;margin-top:34px;animation:bob 2.6s ease-in-out infinite;filter:drop-shadow(0 8px 6px rgba(0,0,0,.25))}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+.hero h1{font-size:34px;line-height:1.05;margin-top:6px;letter-spacing:.5px;text-shadow:0 3px 0 rgba(0,0,0,.2)}
+.hero h1 span{color:#ffd27a}
+.hero p{margin:12px auto 0;font-size:15.5px;line-height:1.5;max-width:340px;color:#eaf7e0;font-weight:600}
+.cta{display:inline-block;margin-top:18px;background:var(--or);color:#fff;text-decoration:none;padding:13px 26px;border-radius:99px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;box-shadow:0 5px 0 var(--or2);transition:transform .1s}
+.cta:active{transform:translateY(4px);box-shadow:0 1px 0 var(--or2)}
+.wave{position:absolute;left:0;right:0;bottom:-1px;height:46px}
+/* stats */
+.stats{display:flex;gap:10px;margin:-6px 16px 6px;position:relative;z-index:2}
+.stat{flex:1;background:#fff;border-radius:18px;padding:12px 6px;text-align:center;box-shadow:0 4px 14px rgba(47,107,63,.15);border:2px dashed var(--g4)}
+.stat b{display:block;font-family:'Fredoka';font-size:22px;color:var(--g2)}
+.stat span{font-size:11.5px;font-weight:700;color:var(--bark)}
+.sec{padding:22px 16px 4px;text-align:center}
+.sec h2{font-size:23px;color:var(--g1)}
+.sec p{font-size:14px;margin-top:4px;color:var(--bark);font-weight:600}
+/* chips */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:2px solid var(--g3);background:#fff;color:var(--g2);padding:7px 14px;border-radius:99px;font-family:'Fredoka';font-weight:500;font-size:14px;cursor:pointer}
+.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+/* cards */
+.list{padding:10px 16px;display:grid;gap:18px}
+.card{background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 6px 18px rgba(80,60,20,.14);border:3px solid #fff;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.card.in{opacity:1;transform:none}
+.pic{position:relative;height:128px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pic .em{font-size:76px;filter:drop-shadow(0 6px 4px rgba(0,0,0,.2));animation:bob 3s ease-in-out infinite}
+.pic .d{position:absolute;font-size:22px;opacity:.55}
+.pic .d1{left:12px;top:10px}.pic .d2{right:14px;bottom:8px;font-size:26px}.pic .d3{right:22%;top:12px;font-size:16px}
+.tag{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.9);color:var(--g1);font-size:11.5px;padding:3px 10px;border-radius:99px;font-weight:600}
+.num{position:absolute;left:10px;bottom:8px;background:var(--bark);color:#fff;font-family:'Fredoka';font-size:12px;padding:2px 9px;border-radius:99px}
+.body{padding:14px 16px 16px}
+.body h3{font-size:19px;color:var(--g1);line-height:1.15;text-transform:uppercase;letter-spacing:.3px}
+.body p{font-size:14px;line-height:1.5;margin:7px 0 14px;font-weight:600;color:#4a5a4a}
+.row{display:flex;gap:10px}
+.btn{flex:1;text-align:center;text-decoration:none;padding:11px 8px;border-radius:16px;font-weight:600;font-size:15px;transition:transform .1s}
+.btn:active{transform:translateY(3px)}
+.b1{background:var(--g4);color:var(--g1);box-shadow:0 4px 0 #94c27b}
+.b2{background:var(--or);color:#fff;box-shadow:0 4px 0 var(--or2);flex:1.25}
+.card.special{border-color:#ffd27a}
+/* info */
+.how{margin:22px 16px 0;background:var(--g1);color:#fff;border-radius:26px;padding:20px 18px;text-align:center}
+.how h2{font-size:21px;color:#ffd27a}
+.how p{font-size:14px;line-height:1.55;margin-top:8px;font-weight:600;color:#e3f4d8}
+.steps{display:flex;justify-content:space-around;margin-top:14px;font-family:'Fredoka';font-size:13px}
+.steps div{font-size:34px}.steps span{display:block;font-size:12.5px;margin-top:2px}
+footer{text-align:center;font-size:12.5px;padding:24px 20px;color:var(--bark);font-weight:700;line-height:1.6}
+footer a{color:var(--g2)}
+/* bottom bar */
+.dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(0deg,var(--cream) 70%,transparent)}
+.dock a{display:block;text-align:center;background:var(--or);color:#fff;text-decoration:none;padding:14px;border-radius:99px;font-family:'Fredoka';font-weight:600;font-size:17px;box-shadow:0 5px 0 var(--or2),0 10px 20px rgba(0,0,0,.18)}
+.dock a:active{transform:translateY(4px);box-shadow:0 1px 0 var(--or2)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top">🌿 Sekolah Hutan <small>🦧 Adopsi</small></div>
+
+<header class="hero">
+  <span class="vine v1">🌿</span><span class="vine v2">🍃</span><span class="vine v3">🌿</span><span class="vine v4">🍃</span>
+  <span class="leaf l1">🍃</span><span class="leaf l2">🍂</span><span class="leaf l3">🍃</span><span class="leaf l4">🍂</span>
+  <div class="mascot">🦧</div>
+  <h1>ADOPSI<br><span>ORANGUTAN</span></h1>
+  <p>Jadilah pelaku penting pelestarian dengan mengadopsi salah satu anggota Sekolah Hutan dan bantu mereka sampai kembali ke hutan kelak! 🌳</p>
+  <a class="cta" href="#daftar">Pilih Sahabatmu 🍌</a>
+  <svg class="wave" viewBox="0 0 430 46" preserveAspectRatio="none"><path d="M0 22 C70 0 140 46 215 24 C290 2 360 44 430 18 V46 H0Z" fill="#fff8e7"/></svg>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>16</b><span>Anggota</span></div>
+  <div class="stat"><b>1</b><span>Sekolah Hutan</span></div>
+  <div class="stat"><b>🌱</b><span>Menuju Hutan</span></div>
+</div>
+
+<div class="sec" id="daftar"><h2>Kenalan dengan Mereka 🐒</h2><p>Ketuk Biografi untuk cerita lengkap, atau langsung Adopsi!</p></div>
+<div class="chips" id="chips" hidden></div>
+<main class="list" id="list"></main>
+
+<section class="how">
+  <h2>Cara Jadi Orangtua Asuh</h2>
+  <div class="steps"><div>🦧<span>Pilih</span></div><div>💚<span>Adopsi</span></div><div>🌳<span>Pulang ke Hutan</span></div></div>
+  <p>Setiap adopsi membantu perawatan, makanan, dan pendidikan hutan bagi orangutan yatim piatu hingga siap dilepasliarkan.</p>
+</section>
+
+<footer>Dibuat dengan 💚 untuk orangutan<br>Sumber & adopsi resmi: <a href="https://www.orangutan.or.id" target="_blank" rel="noopener">orangutan.or.id</a></footer>
+
+<div class="dock"><a href="#daftar">🦧 Adopsi Sekarang</a></div>
+
+<script>
+const BASE="https://www.orangutan.or.id/id/";
+const D=[
+["rumba","RUMBA SANG PEMBERANI","MTk=","Dari seekor bayi kecil yang serba penakut, kini Rumba membuktikan ketangguhannya sebagai penjelajah pepohonan tinggi!...","Pemberani","Sekolah Hutan"],
+["selfie","SELFIE, SI MANIS","MjA=","Berhati lembut namun tangguh, Selfie tak pernah membiarkan trauma masa lalu mengeraskan hatinya....","Manis","Sekolah Hutan"],
+["jenny","JENNY, SI CERDIK","MjE=","Sosok komedian cilik orangutan yang lincah, berani, dan jenaka!...","Cerdik","Sekolah Hutan"],
+["galaksi","Galaksi, Si Ingin Tahu","MjI=","Si cilik yang ingin tahu dan gemar menjelajah di hutan Samboja Lestari!...","Penasaran","Sekolah Hutan"],
+["onyer","ONYER, SI PERCAYA DIRI","MTg=","Pada hari pertamanya di Nyaru Menteng, Onyer sangat gugup. Kini, ia cukup menikmati melihat ke dalam lensa kamera!...","Percaya Diri","Sekolah Hutan"],
+["baimah","BAIMAH, SI MANDIRI","MTY=","Suatu ketika orangutan yang kelebihan berat badan bernama Baimah tiba di Pusat Rehabilitasi Samboja Lestari....","Mandiri","Sekolah Hutan"],
+["iqo","IQO, SI BAIK HATI","MTc=","Iqo semakin mandiri dan sekarang terampil memanjat pohon tinggi, ia juga bukan pemilih makanan....","Baik Hati","Sekolah Hutan"],
+["monyo","SI PINTAR MONYO","MTQ=","Monyo telah menunjukkan kepada kita kekuatan, kecerdasan, dan daya tahannya sejak ia datang ke Pusat Rehabilitasi Orangu...","Pintar","Sekolah Hutan"],
+["jeni","JENI, SI CERIA","MTU=","Jeni tumbuh cepat dan kini sulit membayangkan betapa ia datang dalam kondisi kurang gizi, sakit, di tahun 2020. Melihatn...","Ceria","Sekolah Hutan"],
+["taymur","TAYMUR, SI TANGGUH","MTM=","Taymur adalah korban perdagangan satwa liar internasional dan sempat dipelihara di Kuwait...","Tangguh","Sekolah Hutan"],
+["bumi","BUMI, SI PENUH ENERGI","Ng==","Di Pulau Bangamat, Bumi dikenal sebagai individu yang menyenangkan namun tidak bisa diam....","Energik","Sekolah Hutan"],
+["monita","MONITA, SI PANTANG MENYERAH","OQ==","Monita yang sekarang beranjak dewasa sudah ditempatkan di Pulau Bangamat dan terus berkembang!...","Pantang Menyerah","Sekolah Hutan"],
+["mema","MEMA SI PENYAYANG","MTE=","Sifat Mema yang suka bermain dan bersahabat membuatnya mudah berteman...","Penyayang","Sekolah Hutan"],
+["jelapat","JELAPAT YANG BERUNTUNG","OA==","Jelapat adalah karakter yang suka bermain-main dan bergulat dengan babysitter...","Beruntung","Sekolah Hutan"],
+["topan","TOPAN SI PEMBERANI","MTI=","Topan perlahan menjadi orangutan yang lebih bersahabat dan pandai memanjat!...","Pemberani","Sekolah Hutan"],
+["kopral","KOPRAL DAN TEMAN","NA==","Merawat Mereka yang Tidak Bisa Kembali ke Alam...","Spesial","Sekolah Hutan",20]
+];
+const PAL=[["#ffe3b3","#f7b267"],["#d9f2c4","#8fcf7a"],["#ffd9d2","#f4a6a0"],["#d6ecff","#9ccbee"],["#fff0a8","#f2cf4d"],["#e8dcff","#bda6ee"]];
+const EM=["🦧","🍌","🌴","🍃","🥭","🌿","🍂","🌺"];
+const url=(d)=>BASE+"step-adoption-first?countrycode=DE&title="+encodeURIComponent(d[1])+"&get="+d[2]+"&specialamount="+(d[6]||"null");
+const list=document.getElementById("list"),chips=document.getElementById("chips");
+const places=["Semua",...new Set(D.map(d=>d[5]))];
+let cur="Semua";
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function render(){
+  list.innerHTML="";
+  D.filter(d=>cur==="Semua"||d[5]===cur).forEach(d=>{
+    const i=D.indexOf(d),p=PAL[i%PAL.length];
+    const c=document.createElement("article");
+    c.className="card"+(d[6]?" special":"");
+    c.innerHTML=`<div class="pic" style="background:linear-gradient(135deg,${p[0]},${p[1]})">
+      <span class="d d1">${EM[(i+3)%8]}</span><span class="d d2">${EM[(i+5)%8]}</span><span class="d d3">${EM[(i+1)%8]}</span>
+      <span class="em" style="animation-delay:${-(i%5)*.5}s">🦧</span>
+      <span class="tag">${d[4]}</span><span class="num">#${String(i+1).padStart(2,"0")}</span></div>
+      <div class="body"><h3>${d[1]}</h3><p>${d[3]}</p>
+      <div class="row"><a class="btn b1" href="${BASE+d[0]}" target="_blank" rel="noopener">📖 Biografi</a>
+      <a class="btn b2" href="${url(d)}" target="_blank" rel="noopener">💚 Adopsi ${d[0][0].toUpperCase()+d[0].slice(1)}</a></div></div>`;
+    list.appendChild(c);io.observe(c);
+  });
+}
+places.forEach(pl=>{const b=document.createElement("button");b.className="chip"+(pl===cur?" on":"");b.textContent=pl==="Semua"?"🌳 Semua":"📍 "+pl;
+  b.onclick=()=>{cur=pl;[...chips.children].forEach(x=>x.classList.toggle("on",x===b));render()};chips.appendChild(b)});
+render();
+</script>
+</body>
+</html>
